@@ -7,15 +7,15 @@ public class TreatmentServer {
     public static void main(String[] args) {
         try {
             Registry registry = LocateRegistry.createRegistry(1099);
-            System.out.println( "Serveur : Construction de l'implementation");
+            System.out.println( "Server : Construction of the implementation");
             FabTreatmentImpl fab=new FabTreatmentImpl();
-            System.out.println("Objet Fabrique lie dans le RMIregistry");
-            registry.rebind ("Fabrique",fab);
-            System.out.println ("Serveur prêt.") ;
-            System.out.println("Attente des invocations des clients ...");
+            System.out.println("Factory Object link in the RMIregistry");
+            registry.rebind ("Factory",fab);
+            System.out.println ("Server is Ready!") ;
+            System.out.println("Waiting for Client request  ...");
         }
         catch (Exception e) {
-            System.out.println("Erreur de liaison de l'objet Fabrique");
+            System.out.println("Error linking Factory Object ");
             System.out.println(e.toString());
         }
     }
