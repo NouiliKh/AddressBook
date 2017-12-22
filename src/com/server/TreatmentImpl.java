@@ -15,18 +15,18 @@ public class TreatmentImpl extends UnicastRemoteObject implements TreatmentInter
     }
 
     @Override
-    public Void addEmployee(Employee emp) throws RemoteException {
+    public Void addEmployee(String InstitutionName,Employee emp) throws RemoteException {
         InputStream in = null;
 
         try {
-            in= new FileInputStream("DataSet.json");
+            in= new FileInputStream(InstitutionName+".json");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
 
         JsonReader reader = createReader(in);
         JsonObject employeeObject = reader.readObject();
-        JsonArray employeeArray = employeeObject.getJsonArray("FST");
+        JsonArray employeeArray = employeeObject.getJsonArray("InstitutionName");
         reader.close();
 
 
@@ -39,11 +39,11 @@ public class TreatmentImpl extends UnicastRemoteObject implements TreatmentInter
         employeeBuilder.add(Json.createObjectBuilder().add("prénom" ,emp.getEmployeeName()).add("nom",emp.getEmplyeeFamilyName()).add("cin",emp.getEmployeeCIN()).add("telephone",emp.getEmplyeeTelephoneNumber()));
         JsonArray employeeJsonArray= employeeBuilder.build();
         JsonObjectBuilder jsonObjectBuilder = Json.createObjectBuilder();
-        jsonObjectBuilder.add("FST", employeeJsonArray);
+        jsonObjectBuilder.add("InstitutionName", employeeJsonArray);
         JsonObject emp01=jsonObjectBuilder.build();
         OutputStream out = null;
         try {
-            out = new FileOutputStream("DataSet.json");
+            out = new FileOutputStream(InstitutionName+".json");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -57,10 +57,10 @@ public class TreatmentImpl extends UnicastRemoteObject implements TreatmentInter
     }
 
     @Override
-    public Void updateEmployee(Employee emp) throws RemoteException {
+    public Void updateEmployee(String InstitutionName,Employee emp) throws RemoteException {
         InputStream in = null;
         try {
-            in = new FileInputStream("DataSet.json");
+            in = new FileInputStream(InstitutionName+".json");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -68,7 +68,7 @@ public class TreatmentImpl extends UnicastRemoteObject implements TreatmentInter
         JsonReader jsonReader = createReader(in);
         //get JsonObject from JsonReader
         JsonObject employeeObject = jsonReader.readObject();
-        JsonArray employeeArray = employeeObject.getJsonArray("FST");
+        JsonArray employeeArray = employeeObject.getJsonArray("InstitutionName");
         //we can close IO resource and JsonReader now
         jsonReader.close();
         try {
@@ -79,7 +79,7 @@ public class TreatmentImpl extends UnicastRemoteObject implements TreatmentInter
 
         OutputStream out = null;
         try {
-            out = new FileOutputStream("DataSet.json");
+            out = new FileOutputStream(InstitutionName+".json");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -101,7 +101,7 @@ public class TreatmentImpl extends UnicastRemoteObject implements TreatmentInter
         }
         JsonArray employeeJsonArray= employeeBuilder.build();
         JsonObjectBuilder jsonObjectBuilder = Json.createObjectBuilder();
-        jsonObjectBuilder.add("FST", employeeJsonArray);
+        jsonObjectBuilder.add(InstitutionName, employeeJsonArray);
         JsonObject emp01=jsonObjectBuilder.build();
 
         JsonWriter jsonwriter=Json.createWriter(out);
@@ -113,10 +113,10 @@ public class TreatmentImpl extends UnicastRemoteObject implements TreatmentInter
     }
 
     @Override
-    public Void deleteEmployee(Employee emp) throws RemoteException {
+    public Void deleteEmployee(String InstitutionName,Integer cin) throws RemoteException {
         InputStream in = null;
         try {
-            in = new FileInputStream("DataSet.json");
+            in = new FileInputStream(InstitutionName+".json");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -124,7 +124,7 @@ public class TreatmentImpl extends UnicastRemoteObject implements TreatmentInter
         JsonReader jsonReader = createReader(in);
         //get JsonObject from JsonReader
         JsonObject employeeObject = jsonReader.readObject();
-        JsonArray employeeArray = employeeObject.getJsonArray("FST");
+        JsonArray employeeArray = employeeObject.getJsonArray("InstitutionName");
         //we can close IO resource and JsonReader now
         jsonReader.close();
         try {
@@ -135,7 +135,7 @@ public class TreatmentImpl extends UnicastRemoteObject implements TreatmentInter
 
         OutputStream out = null;
         try {
-            out = new FileOutputStream("DataSet.json");
+            out = new FileOutputStream(InstitutionName+".json");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -145,7 +145,7 @@ public class TreatmentImpl extends UnicastRemoteObject implements TreatmentInter
 
         for (int i=0 ;i< employeeArray.size();i++)
         {
-            if(!Objects.equals(employeeArray.getJsonObject(i).getString("nom"), emp.getEmplyeeFamilyName()))
+            if(!Objects.equals(employeeArray.getJsonObject(i).getInt("cin"), cin))
             {
                 employeeBuilder.add(employeeArray.getJsonObject(i));
             }
@@ -153,7 +153,7 @@ public class TreatmentImpl extends UnicastRemoteObject implements TreatmentInter
         }
         JsonArray employeeJsonArray= employeeBuilder.build();
         JsonObjectBuilder jsonObjectBuilder = Json.createObjectBuilder();
-        jsonObjectBuilder.add("FST", employeeJsonArray);
+        jsonObjectBuilder.add(InstitutionName, employeeJsonArray);
         JsonObject emp01=jsonObjectBuilder.build();
 
         JsonWriter jsonwriter=Json.createWriter(out);
@@ -167,11 +167,11 @@ public class TreatmentImpl extends UnicastRemoteObject implements TreatmentInter
     }
 
     @Override
-    public Employee findEmployee(String familyName) throws RemoteException {
+    public Employee findEmployee(String InstitutionName,Integer cin) throws RemoteException {
         Employee emp = null;
         InputStream in = null;
         try {
-            in = new FileInputStream("DataSet.json");
+            in = new FileInputStream(InstitutionName+".json");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -179,7 +179,7 @@ public class TreatmentImpl extends UnicastRemoteObject implements TreatmentInter
         JsonReader jsonReader = createReader(in);
         //get JsonObject from JsonReader
         JsonObject employeeObject = jsonReader.readObject();
-        JsonArray employeeArray = employeeObject.getJsonArray("FST");
+        JsonArray employeeArray = employeeObject.getJsonArray("InstitutionName");
         //we can close IO resource and JsonReader now
         jsonReader.close();
         try {
@@ -190,7 +190,7 @@ public class TreatmentImpl extends UnicastRemoteObject implements TreatmentInter
 
         for (int i=0 ;i< employeeArray.size();i++)
         {
-            if(!Objects.equals(employeeArray.getJsonObject(i).getString("nom"), familyName))
+            if(!Objects.equals(employeeArray.getJsonObject(i).getInt("cin"),cin ))
             {
                 emp = new Employee(employeeArray.getJsonObject(i).getString("prénom"),employeeArray.getJsonObject(i).getString("nom"),employeeArray.getJsonObject(i).getInt("cin"),employeeArray.getJsonObject(i).getInt("telephone"));
             }

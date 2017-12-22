@@ -2,8 +2,8 @@ package com.server;
 import java.rmi.*;
 import java.rmi.server.*;
 import java.rmi.registry.*;
-public class TreatmentServer {
-
+public class TreatmentServer
+{
     public static void main(String[] args) {
         try {
             Registry registry = LocateRegistry.createRegistry(1099);
@@ -19,6 +19,4 @@ public class TreatmentServer {
             System.out.println(e.toString());
         }
     }
-
-
 }
