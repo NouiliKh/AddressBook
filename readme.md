@@ -1,5 +1,6 @@
 # S.A.R-Project
 Java RMI Academic Project.
+Technologies used : Java , JSON ( javax library)
 
 ## How to Use The Project
 
