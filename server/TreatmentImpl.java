@@ -1,5 +1,3 @@
-package com.server;
-
 import javax.json.*;
 import java.io.*;
 import java.rmi.RemoteException;
@@ -14,8 +12,9 @@ public class TreatmentImpl extends UnicastRemoteObject implements TreatmentInter
         super();
     }
 
-    @Override
     public Void addEmployee(String InstitutionName,Employee emp) throws RemoteException {
+
+
         InputStream in = null;
 
         try {
@@ -26,7 +25,9 @@ public class TreatmentImpl extends UnicastRemoteObject implements TreatmentInter
 
         JsonReader reader = createReader(in);
         JsonObject employeeObject = reader.readObject();
-        JsonArray employeeArray = employeeObject.getJsonArray("InstitutionName");
+        JsonArray employeeArray = employeeObject.getJsonArray(InstitutionName);
+
+
         reader.close();
 
 
@@ -34,6 +35,7 @@ public class TreatmentImpl extends UnicastRemoteObject implements TreatmentInter
 
         for (int i=0 ;i< employeeArray.size();i++)
         {
+
             employeeBuilder.add(employeeArray.getJsonObject(i));
         }
         employeeBuilder.add(Json.createObjectBuilder().add("prénom" ,emp.getEmployeeName()).add("nom",emp.getEmplyeeFamilyName()).add("cin",emp.getEmployeeCIN()).add("telephone",emp.getEmplyeeTelephoneNumber()));
@@ -42,7 +44,9 @@ public class TreatmentImpl extends UnicastRemoteObject implements TreatmentInter
         jsonObjectBuilder.add("InstitutionName", employeeJsonArray);
         JsonObject emp01=jsonObjectBuilder.build();
         OutputStream out = null;
+
         try {
+
             out = new FileOutputStream(InstitutionName+".json");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -56,7 +60,6 @@ public class TreatmentImpl extends UnicastRemoteObject implements TreatmentInter
         return null;
     }
 
-    @Override
     public Void updateEmployee(String InstitutionName,Employee emp) throws RemoteException {
         InputStream in = null;
         try {
@@ -68,7 +71,7 @@ public class TreatmentImpl extends UnicastRemoteObject implements TreatmentInter
         JsonReader jsonReader = createReader(in);
         //get JsonObject from JsonReader
         JsonObject employeeObject = jsonReader.readObject();
-        JsonArray employeeArray = employeeObject.getJsonArray("InstitutionName");
+        JsonArray employeeArray = employeeObject.getJsonArray(InstitutionName);
         //we can close IO resource and JsonReader now
         jsonReader.close();
         try {
@@ -112,7 +115,6 @@ public class TreatmentImpl extends UnicastRemoteObject implements TreatmentInter
         return null;
     }
 
-    @Override
     public Void deleteEmployee(String InstitutionName,Integer cin) throws RemoteException {
         InputStream in = null;
         try {
@@ -124,7 +126,7 @@ public class TreatmentImpl extends UnicastRemoteObject implements TreatmentInter
         JsonReader jsonReader = createReader(in);
         //get JsonObject from JsonReader
         JsonObject employeeObject = jsonReader.readObject();
-        JsonArray employeeArray = employeeObject.getJsonArray("InstitutionName");
+        JsonArray employeeArray = employeeObject.getJsonArray(InstitutionName);
         //we can close IO resource and JsonReader now
         jsonReader.close();
         try {
@@ -166,7 +168,6 @@ public class TreatmentImpl extends UnicastRemoteObject implements TreatmentInter
 
     }
 
-    @Override
     public Employee findEmployee(String InstitutionName,Integer cin) throws RemoteException {
         Employee emp = null;
         InputStream in = null;
@@ -179,7 +180,7 @@ public class TreatmentImpl extends UnicastRemoteObject implements TreatmentInter
         JsonReader jsonReader = createReader(in);
         //get JsonObject from JsonReader
         JsonObject employeeObject = jsonReader.readObject();
-        JsonArray employeeArray = employeeObject.getJsonArray("InstitutionName");
+        JsonArray employeeArray = employeeObject.getJsonArray(InstitutionName);
         //we can close IO resource and JsonReader now
         jsonReader.close();
         try {

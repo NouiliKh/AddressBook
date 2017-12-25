@@ -1,13 +1,11 @@
-package com.server;
-import java.rmi.RemoteException;
-import java.rmi.server.UnicastRemoteObject;
+import java.rmi.*;
+import java.rmi.server.*;
 
 public class FabTreatmentImpl extends UnicastRemoteObject implements  FabTreatmentInterface{
 
-    protected FabTreatmentImpl() throws RemoteException {
-    }
+    public FabTreatmentImpl() throws RemoteException {}
 
-    @Override
+
     public TreatmentInterface newTreatmentImpl() throws RemoteException {
         return new TreatmentImpl();
     }

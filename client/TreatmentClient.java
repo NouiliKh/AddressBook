@@ -1,10 +1,3 @@
-package com.client;
-import com.server.FabTreatmentInterface;
-import com.server.TreatmentInterface;
-import com.sun.tools.javac.util.BasicDiagnosticFormatter;
-import jdk.nashorn.api.tree.WhileLoopTree;
-
-import java.rmi.*;
 import java.rmi.registry.*;
 import java.util.Scanner;
 
@@ -36,11 +29,12 @@ public class TreatmentClient {
             Scanner scanner = new Scanner(System.in);
 
 
-            do {
-                chosenNumber = scanner.next();
-            } while ( chosenNumber.equals("1") || chosenNumber.equals("2") || chosenNumber.equals("3") || chosenNumber.equals("4") || chosenNumber.equals("0")  );
+           
 
             while (true) {
+                do {
+                    chosenNumber = scanner.next();
+                } while ( chosenNumber.equals('1') || chosenNumber.equals('2') || chosenNumber.equals('3') || chosenNumber.equals('4') || chosenNumber.equals('0')  );
 
                 switch (chosenNumber) {
                     case "1":
@@ -52,14 +46,20 @@ public class TreatmentClient {
                         Integer EmployeeCIN= Integer.valueOf(scanner.next());
                         System.out.print("ektb el tel\n");
                         Integer EmployeeTel= Integer.valueOf(scanner.next());
+
                         Employee emp1 =new Employee(EmployeeName,EmployeeFamilyName,EmployeeCIN,EmployeeTel);
+
                         TraitmnentObj.addEmployee(args[0],emp1);
-                        break;
+                       
+
+                    break;
                     case "2":
                         System.out.print("CIN of the Employee to Upadte\n");
                         int cin1= Integer.parseInt(scanner.next());
                         TraitmnentObj.deleteEmployee(args[0],cin1);
-                        break;
+                       
+
+                    break;
                     case "3":
                         System.out.print("ektb el esm\n");
                         String EmployeeName2=scanner.next();
@@ -71,15 +71,19 @@ public class TreatmentClient {
                         Integer EmployeeTel2= Integer.valueOf(scanner.next());
                         Employee emp2 =new Employee(EmployeeName2,EmployeeFamilyName2,EmployeeCIN2,EmployeeTel2);
                         TraitmnentObj.updateEmployee(args[0],emp2);
-                        break;
+                       
+
+                    break;
                     case "4":
                         System.out.print("CIN of the Employee to find\n");
                         int cin2= Integer.parseInt(scanner.next());
                         TraitmnentObj.findEmployee(args[0],cin2);
-                        break;
+                       
+
+                    break;
                     case "0":
                         System.exit(0);
-                        break;
+                    break;
 
                 }
             }

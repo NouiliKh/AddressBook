@@ -1,7 +1,10 @@
-package com.server;
+import java.rmi.Remote;
+import java.rmi.RemoteException;
 import java.awt.*;
+import java.io.Serializable;
 
-public class Employee {
+
+public class Employee implements Serializable, Remote {
     private String name ;
     private String familyName;
     private int cin ;
