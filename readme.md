@@ -40,3 +40,23 @@ Client
 //client is ready //
   user$ java -classpath ../lib/javax.json.jar:./ TreatmentClient
 ```
+
+Graphical Interface Client
+```
+//Go to the ClientGraphicInterface rep//
+  user$ cd ../ClientGraphicInterface
+//Copy TreatmentInterface class in the ClientGraphicInterface repo//
+  user$ cp ../server/TreatmentInterface.class .
+//Copy the stub  Institution_Stub.class in the ClientGraphicInterface repo //
+  user$ cp ../server/TreatmentImpl_Stub.class .
+//Copy the interface FabTreatmentInterface.class//
+  user$ cp ../server/FabTreatmentInterface.class .
+// copy the stub FabTreatmentImpl_Stub.class//
+  user$ cp ../server/Fabrique_Stub.class .
+// Copy the classe Employee//
+  user$ cp ../server/Employee.class .
+//Compiler the Main.java//
+  user$  javac -classpath lib/jfoenix-9.0.0.jar:../lib/javax.json.jar:./   Main.java
+//client is ready //
+  user$  javac -classpath lib/jfoenix-9.0.0.jar:../lib/javax.json.jar:./   Main
+```
