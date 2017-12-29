@@ -41,7 +41,7 @@ public class TreatmentImpl extends UnicastRemoteObject implements TreatmentInter
         employeeBuilder.add(Json.createObjectBuilder().add("prénom" ,emp.getEmployeeName()).add("nom",emp.getEmplyeeFamilyName()).add("cin",emp.getEmployeeCIN()).add("telephone",emp.getEmplyeeTelephoneNumber()));
         JsonArray employeeJsonArray= employeeBuilder.build();
         JsonObjectBuilder jsonObjectBuilder = Json.createObjectBuilder();
-        jsonObjectBuilder.add("InstitutionName", employeeJsonArray);
+        jsonObjectBuilder.add(InstitutionName, employeeJsonArray);
         JsonObject emp01=jsonObjectBuilder.build();
         OutputStream out = null;
 
