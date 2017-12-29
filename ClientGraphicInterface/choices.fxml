@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <?language javascript?> -->
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.Button?>
+
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="521.0" stylesheets="@style.css" prefWidth="920.0" style="-fx-background-color: #7bc4d3;" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+
+             <ImageView fitHeight="416.0" fitWidth="416.0" layoutY="105.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@graphics/283.jpg" />
+                </image>
+            </ImageView>
+    
+
+
+      <Button id="btn" fx:id="add" layoutX="507.0" layoutY="58.0" mnemonicParsing="false" onAction="#inputAdd">
+         <graphic>      
+            <ImageView  accessibleRole="BUTTON" fitHeight="134.0" fitWidth="307.0" layoutX="507.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true"  >
+                <image>
+                    <Image url="@graphics/add.png" />
+                </image>
+            </ImageView>
+         </graphic>
+      </Button>
+
+
+        <Button id="btn" fx:id="find" layoutX="507.0" layoutY="164.0" mnemonicParsing="false" onAction="#inputFind">
+                <graphic>      
+                     <ImageView  accessibleRole="BUTTON" fitHeight="77.0" fitWidth="324.0" layoutX="507.0" layoutY="164.0" pickOnBounds="true" preserveRatio="true">
+                         <image>
+                          <Image url="@graphics/find.png" />
+                         </image>
+                     </ImageView>
+                </graphic>
+        </Button>
+
+
+        <Button id="btn" fx:id="update" layoutX="507.0" layoutY="275.0" mnemonicParsing="false" onAction="#inputUpdate" >
+         <graphic>      
+             <ImageView accessibleRole="BUTTON" fitHeight="77.0" fitWidth="307.0" layoutX="507.0" layoutY="275.0" pickOnBounds="true" preserveRatio="true">
+             <image>
+                <Image url="@graphics/update.png" />
+            </image>
+        </ImageView>
+         </graphic>
+      </Button>
+
+
+          <Button id="btn" fx:id="delete" layoutX="507.0" layoutY="382.0" mnemonicParsing="false" onAction="#inputDelete">
+         <graphic>      
+             <ImageView accessibleRole="BUTTON" fitHeight="77.0" fitWidth="307.0" layoutX="508.0" layoutY="382.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@graphics/delete.png" />
+         </image>
+      </ImageView>
+         </graphic>
+      </Button>
+
+     
+     
+      
+      
+   </children>
+</AnchorPane>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- <?language javascript?> -->
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="introPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="521.0" prefWidth="920.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1">
+   
+   <children>
+      <ImageView fitHeight="521.0" fitWidth="960.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@graphics/firstScreen.png" />
+         </image>
+      </ImageView>
+
+
+      <Button id="btn" fx:id="FST" layoutX="291" layoutY="190.0" mnemonicParsing="false" onAction="#inputFST">
+         <graphic>
+            <ImageView accessibleRole="BUTTON" cache="true" fitHeight="150.0" fitWidth="200.0" layoutX="291.0" layoutY="181.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@graphics/FST.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+
+
+      <Button id="btn" fx:id="Ensit" layoutX="29.0" layoutY="181.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="192.0"  onAction="#inputEnsit">
+         <graphic>
+            <ImageView accessibleRole="BUTTON" cache="true" fitHeight="150.0" fitWidth="200.0" layoutX="291.0" layoutY="181.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@graphics/ENSIT.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+
+
+
+      <Button id="btn" fx:id="Ensi" layoutX="29.0" layoutY="301.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="218.0"  onAction="#inputEnsi">
+         <graphic>
+            <ImageView accessibleRole="BUTTON" cache="true" fitHeight="150.0" fitWidth="200.0" layoutX="291.0" layoutY="181.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@graphics/ENSI.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+
+
+      <Button id="btn" fx:id="ISI" layoutX="291.0" layoutY="301.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="218.0"  onAction="#inputISI">
+         <graphic>
+            <ImageView accessibleRole="BUTTON" cache="true" fitHeight="150.0" fitWidth="200.0" layoutX="291.0" layoutY="181.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                   <Image url="@graphics/ISI.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+
+   </children>
+</AnchorPane>
