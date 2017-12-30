@@ -2,11 +2,10 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.control.Button?>
-
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="521.0" prefWidth="920.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1">
    <children>
@@ -20,9 +19,11 @@
 
       
       
-      <JFXTextField fx:id="CIN" focusColor="#7bc4d3" layoutX="76.0" layoutY="248.0" prefHeight="26.0" prefWidth="434.0" text="CIN" />
+      <JFXTextField fx:id="CIN" focusColor="#7bc4d3" layoutX="74.0" layoutY="119.0" prefHeight="26.0" prefWidth="434.0" text="CIN" />
       
-      <JFXButton onAction="#findinput"  fx:id="submit" layoutX="74.0" layoutY="414.0" prefHeight="26.0" prefWidth="434.0" style="-fx-background-color: #7bc4d3;" text="Submit" textFill="WHITE" />
+      <JFXButton fx:id="submit" layoutX="74.0" layoutY="198.0" onAction="#findinput" prefHeight="26.0" prefWidth="434.0" style="-fx-background-color: #7bc4d3;" text="Submit" textFill="WHITE" />
+      
+      <Label fx:id="Description" layoutX="80.0" layoutY="261.0" prefHeight="119.0" prefWidth="423.0" />
 
 
    </children>

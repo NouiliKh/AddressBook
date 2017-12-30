@@ -41,12 +41,19 @@ public class UpdateController
 
     @FXML public void inputUpdate(ActionEvent e)throws IOException 
      {
-        // Registry reg = LocateRegistry.getRegistry("localhost", 1099);
-        // FabTreatmentInterface factory = (FabTreatmentInterface) reg.lookup("Factory");
-        // TreatmentInterface TraitmnentObj;
-        // TraitmnentObj = (TreatmentInterface) factory.newTreatmentImpl();
-        // Employee emp1 =new Employee( FamilyName.getText(),Username.getText(),Integer.parseInt(Password.getText()), Integer.parseInt(telephoneNumber.getText()));
-        // TraitmnentObj.updateEmployee(Controller.InitutionName,emp1);
+        try{
+        Registry reg = LocateRegistry.getRegistry("localhost", 1099);
+        FabTreatmentInterface factory = (FabTreatmentInterface) reg.lookup("Factory");
+        TreatmentInterface TraitmnentObj;
+        TraitmnentObj = (TreatmentInterface) factory.newTreatmentImpl();
+        Employee emp1 =new Employee( FamilyName.getText(),Username.getText(),Integer.parseInt(CIN.getText()), Integer.parseInt(telephoneNumber.getText()));
+        TraitmnentObj.updateEmployee(Controller.InitutionName,emp1);
+        }
+        catch(Exception exception)
+        {
+            System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!Access ERORR !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            System.out.println(exception.toString());
+        }
     }
 
    

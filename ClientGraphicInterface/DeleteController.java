@@ -27,12 +27,19 @@ public class DeleteController{
     @FXML Button submit;
 
     @FXML public void deleteinput(ActionEvent e)throws IOException 
+    { try{
+        Registry reg = LocateRegistry.getRegistry("localhost", 1099);
+        FabTreatmentInterface factory = (FabTreatmentInterface) reg.lookup("Factory");
+        TreatmentInterface TraitmnentObj;
+        TraitmnentObj = (TreatmentInterface) factory.newTreatmentImpl();
+        TraitmnentObj.deleteEmployee(Controller.InitutionName,Integer.parseInt(CIN.getText()));
+    }
+
+    catch(Exception exception)
     {
-        // Registry reg = LocateRegistry.getRegistry("localhost", 1099);
-        // FabTreatmentInterface factory = (FabTreatmentInterface) reg.lookup("Factory");
-        // TreatmentInterface TraitmnentObj;
-        // TraitmnentObj = (TreatmentInterface) factory.newTreatmentImpl();
-        // TraitmnentObj.deleteEmployee(Controller.InitutionName,Integer.parseInt(CIN.getText()));
+        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!Access ERORR !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        System.out.println(exception.toString());
+    }
 
     }
 

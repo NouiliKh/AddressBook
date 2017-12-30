@@ -40,7 +40,7 @@ public class Employee implements Serializable, Remote {
 
     public String getDescription()
     {
-        return "The employee named :"+this.getEmployeeName()+" "+this.getEmplyeeFamilyName()+" with identity card number :"+this.getEmployeeCIN()+"has a telephone which number is "+this.getEmplyeeTelephoneNumber();
+        return "The employee named :"+this.getEmployeeName()+" "+this.getEmplyeeFamilyName()+" \n with identity card number :"+this.getEmployeeCIN()+"\nhas a telephone which number is "+this.getEmplyeeTelephoneNumber();
 
     }
 

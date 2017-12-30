@@ -75,9 +75,11 @@ public class TreatmentClient {
 
                     break;
                     case "4":
+                        Employee emp3 ;
                         System.out.print("CIN of the Employee to find\n");
                         int cin2= Integer.parseInt(scanner.next());
-                        TraitmnentObj.findEmployee(args[0],cin2);
+                        emp3=TraitmnentObj.findEmployee(args[0],cin2);
+                        System.out.print(emp3.getDescription());
                        
 
                     break;

@@ -191,13 +191,12 @@ public class TreatmentImpl extends UnicastRemoteObject implements TreatmentInter
 
         for (int i=0 ;i< employeeArray.size();i++)
         {
-            if(!Objects.equals(employeeArray.getJsonObject(i).getInt("cin"),cin ))
+            if(employeeArray.getJsonObject(i).getInt("cin")==cin )
             {
                 emp = new Employee(employeeArray.getJsonObject(i).getString("prénom"),employeeArray.getJsonObject(i).getString("nom"),employeeArray.getJsonObject(i).getInt("cin"),employeeArray.getJsonObject(i).getInt("telephone"));
             }
         }
-        System.out.print(emp.getEmplyeeFamilyName());
-        emp.getDescription();
+
         return emp;
 
     }

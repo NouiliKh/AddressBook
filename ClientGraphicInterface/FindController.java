@@ -26,15 +26,31 @@ public class FindController{
 
     @FXML Button submit;
 
+    @FXML
+    private Label Description;
 
     @FXML public void findinput(ActionEvent e)throws IOException 
     {
-        // Registry reg = LocateRegistry.getRegistry("localhost", 1099);
-        // FabTreatmentInterface factory = (FabTreatmentInterface) reg.lookup("Factory");
-        // TreatmentInterface TraitmnentObj;
-        // TraitmnentObj = (TreatmentInterface) factory.newTreatmentImpl();
-        // Employee emp1 =new Employee( FamilyName.getText(),Username.getText(),Integer.parseInt(Password.getText()), Integer.parseInt(telephoneNumber.getText()));
-        // TraitmnentObj.findEmployee(Controller.InitutionName,emp1);  
+        try{
+         Registry reg = LocateRegistry.getRegistry("localhost", 1099);
+         FabTreatmentInterface factory = (FabTreatmentInterface) reg.lookup("Factory");
+         TreatmentInterface TraitmnentObj;
+         TraitmnentObj = (TreatmentInterface) factory.newTreatmentImpl();
+         Employee emp1 ;
+         emp1=TraitmnentObj.findEmployee(Controller.InitutionName,Integer.parseInt(CIN.getText()));  
+         Description.setText(emp1.getDescription());
+
+
+
+
+
+        } 
+
+        catch(Exception exception)
+        {
+            System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!Access ERORR !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            System.out.println(exception.toString());
+        }
     }
 
 
