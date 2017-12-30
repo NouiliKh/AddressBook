@@ -1,8 +1,7 @@
 # S.A.R-Project
 Java RMI Academic Project.
-Dependances :json,jfoenix
+Dependancies :json,jfoenix
 ## Using The Project
-```
 
 Building and Running the server
 ```

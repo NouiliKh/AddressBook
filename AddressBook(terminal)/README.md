@@ -1,6 +1,6 @@
 # S.A.R-Project
 Java RMI Academic Project.
-Dependances : Apache2 ,json
+Dependancies : Apache2 ,json
 ## Using The Project
 Apache
 ```
